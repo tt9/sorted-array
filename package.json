@@ -1,5 +1,5 @@
 {
-  "name": "sorted-array",
+  "name": "sorted-array-async",
   "version": "0.0.1",
   "description": "an async self sorting array",
   "main": "./src/sorted-array.js",
