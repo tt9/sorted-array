@@ -155,4 +155,13 @@ describe("sorted-array", function(){
 
 
   });
+
+  describe("set", function(){
+    it('should set a specific index', function(done){
+      fullInstance.set(1, 50).then(function(){
+        expect(fullInstance._data_[1]).to.equal(50);
+        done();
+      });
+    });
+  });
 });

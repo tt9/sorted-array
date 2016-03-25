@@ -1,5 +1,6 @@
 
 'use strict';
+
 (function(){
   //require
   var has_require = typeof require !== 'undefined'
@@ -192,8 +193,7 @@
     }
     exports.SortedArray = SortedArray
   }
-  else {
-    root.mymodule = mymodule
+  else if (window) {
+    window.mymodule = mymodule
   }
-
 }).call(this);
