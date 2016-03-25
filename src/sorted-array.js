@@ -36,7 +36,7 @@
         arr.map(function(item, index, array){
           this._data_.push(item);
         }.bind(this));
-        this._dirty_ = arr.length;
+        this._dirty_ = Math.max(arr.length, 25);
       }
       this._comparer_ = comparer || objectCompare;
     }
@@ -50,8 +50,8 @@
 
     function quickSort(array, comparer) {
       //allocate a stack the length of the array
-      var stack = new Array(array.length);
-      var pivotIndex = array.length / 2;
+      var stack = [];
+      var pivotIndex = parseInt(array.length / 2);
 
       //put the pivot at the end of the array;
       swap(array, pivotIndex, array.length - 1);
@@ -104,6 +104,7 @@
       if(this._dirty_ > 0){
         var sort = getSortStrategy(this._dirty_);
         sort(this._data_, this._comparer_);
+        this._dirty_ = 0;
       }
     }
 
@@ -145,12 +146,15 @@
       }.bind(this));
     }
 
+
     SortedArray.prototype.get = function(index, endIndex){
       return new Promise(function(resolve, reject){
         try{
+          debugger;
           this._cleanup_();
           if(endIndex && endIndex > index && endIndex < this._data_.length){
             var range = [];
+            debugger;
             for(var i = index; i <= endIndex; i++){
               range.push(this._data_[i]);
             }
@@ -161,6 +165,7 @@
           }
         }
         catch(err){
+          debugger;
           reject(err);
         }
       }.bind(this));

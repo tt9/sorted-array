@@ -1,8 +1,8 @@
 {
   "name": "sorted-array",
   "version": "0.0.1",
-  "description": "a self sorting array",
-  "main": "sorted-array.js",
+  "description": "an async self sorting array",
+  "main": "./src/sorted-array.js",
   "scripts": {
     "test": "mocha",
     "testDebug": "mocha debug",
@@ -21,5 +21,15 @@
     "chai": "^3.5.0",
     "istanbul": "^0.4.2",
     "mocha": "^2.4.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tt9/sorted-array"
+  },
+  "keywords": [
+    "sort",
+    "array",
+    "collection",
+    "async"
+  ]
 }

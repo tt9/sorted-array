@@ -100,8 +100,9 @@ describe("sorted-array", function(){
     });
 
     it('should return a range of values', function(done){
-
+      debugger;
       fullInstance.get(0, 2).then(function(val){
+        debugger;
         expect(val).to.be.an.instanceof(Array);
         expect(val).to.eql([1,2,3]);
         done();
@@ -111,22 +112,21 @@ describe("sorted-array", function(){
   });
 
   describe("getArray:largeSet", function(){
-    var largeSetInstance;
+    var largeSetInstance,
+        mockSet;
     beforeEach(function(){
-      var mockSet = [9,8,7,6,5,4,3,2,1,19,18,17,16,15,14,13,12,10,56,78,99,100];
+      mockSet = [9,8,7,6,5,4,3,2,1,19,18,17,16,15,14,13,12,10,56,78,99,100];
       largeSetInstance = new SortedArray(mockSet);
     });
-
-
 
     it('should sort and get the whole array', function(done){
       largeSetInstance.getArray().then(function(arr){
         expect(arr.length).to.not.equal(0);
+        expect(arr.length).to.equal(mockSet.length);
         expect(isInOrder(arr)).to.be.true;
         done();
       });
     });
-
   });
 
   describe("custom comparer", function(){
