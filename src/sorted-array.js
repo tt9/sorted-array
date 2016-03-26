@@ -192,6 +192,10 @@
     SortedArray.prototype.pop = function(count){
       return new Promise(function(resolve, reject){
         try{
+          if(count < 0){
+            reject('invalid count');
+          }
+          
           this._cleanup_();
           if(count && count <= this._data_.length){
             var resultSet = [];

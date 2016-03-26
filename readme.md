@@ -2,7 +2,7 @@
 
 ## Description
 
-An asynchronous, lazy, self sorting array. Use it to keep things in order. Like me the SortedArray object is lazy, meaning it won't sort until it absolutely has to. This will allow you to throw all of your junk into the array and then worry about sorting last minute. This might help your performance, but it also might not, that's for you to figure out.
+An asynchronous, lazy, self sorting array. Use it to keep things in order. Like me, the SortedArray object is lazy, meaning it won't sort until it absolutely has to. This will allow you to throw all of your junk into the array and then worry about sorting last minute. This might help your performance, but it also might not, that's for you to figure out.
 
 Like the name would imply, the important functions are async through the use of Promises. See **usage** below if you need clarification on what that means or how to use it.
 
@@ -22,11 +22,15 @@ The API contains the basic functions you would see in any other array, the diffe
 | -------------- | ------------- | :--------: |
 |`new SortedArray(array, comparer);`| Constructor. Can pass existing array and custom comparator. comparer is type function(a, b). It should return a number. Less than 0 if a < b, 0 if a == b, or greater than 0 if a > b  | A new instance of SortedArray |
 |`SortedArray.push(item);`| Add a new item to the array. | `Promise(void)` |
+|`SortedArray.pushSync(item);`| Add a new item to the array synchronously. | `void` |
+|`SortedArray.set(index, item);`| Sets the specific index to an item.| `Promise(void);` |
 |`SortedArray.length();`| Get the current number of elements in the array.| `int` |
 |`SortedArray.clear();`| Deletes all items in the array.| `void` |
 |`SortedArray.get(index);`| Get the item at the specific index. Triggers sorting.| `Promise(item)` |
 |`SortedArray.getArray();`| Gets a sorted copy of the inner array. Triggers sorting.| `Promise(Array)` |
-|`SortedArray.set(index, item);`| Sets the specific index to an item.| `Promise(void);` |
+|`SortedArray.pop(count);`| Pops last n elements off of array. count is optional, leaving it blank pops 1. Triggers sorting.| `Promise(Array)` or `Promise(obj)` |
+|`SortedArray.last(count);`| Gets the last element from array. Triggers sorting.| `Promise(obj)` |
+
 
 
 
@@ -101,13 +105,28 @@ instance.getArray().then(function(arr){
 
 ```
 
+#### Pop a Few Items
+
+``` JavaScript
+
+var SortedArray = require('sorted-array-async');
+
+var instance = new SortedArray([3,2,0,1,6,7,9,8]);
+
+instance.pop(3).then(function(arr){
+	//arr == [7,8,9]
+
+    instance.pop().then(function(i){
+   		//i == 6;
+    });
+});
+
+```
 
 ## RoadMap
 
-* Add synchronous push functions. *(Sometimes there is just no need to be async, particularily when the function takes a trivial amount of time).*
 * Add synchronous get and getArray functions. *(it kind of defeats the purpose of an async sorted array but might be needed in certain cases).*
-* Add pop and last functions. *(Its difficult to predict the value at an index so it is probably more useful to be able to take positional items instead).*
-* Add dequeue and first functions. *(same argument as above)*
+* Add dequeue and first functions.
 * Become a dependency of many large projects. *($$$$)*
 * Angrily remove package from NPM causing widespread havoc. *($$$$$$$$)*
 * ????? *(?????)*
