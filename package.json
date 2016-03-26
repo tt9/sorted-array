@@ -1,6 +1,6 @@
 {
   "name": "sorted-array-async",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "an async self sorting array",
   "main": "./src/sorted-array.js",
   "scripts": {
@@ -26,6 +26,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tt9/sorted-array"
+    "url": "https://github.com/tt9/sorted-array-async"
   }
 }
