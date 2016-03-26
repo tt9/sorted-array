@@ -1,6 +1,6 @@
 {
   "name": "sorted-array-async",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "an async self sorting array",
   "main": "./src/sorted-array.js",
   "scripts": {

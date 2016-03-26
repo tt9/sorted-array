@@ -123,6 +123,8 @@ instance.pop(3).then(function(arr){
 
 ```
 
+*for live examples click [here](https://tonicdev.com/56e24baf44ffc91100a44ef5/56f5f6bfc4a9701400a9bdda)*
+
 ## RoadMap
 
 * Add synchronous get and getArray functions. *(it kind of defeats the purpose of an async sorted array but might be needed in certain cases).*
