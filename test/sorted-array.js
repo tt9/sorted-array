@@ -106,7 +106,6 @@ describe("sorted-array", function(){
     });
     it('should pop many items', function(done){
       fullInstance.pop(3).then(function(range){
-        debugger;
         expect(range.length).to.equal(3);
         expect(range).to.eql([3,4,5]);
         expect(fullInstance._data_.length).to.equal(2);
@@ -146,9 +145,7 @@ describe("sorted-array", function(){
     });
 
     it('should return a range of values', function(done){
-      debugger;
       fullInstance.get(0, 2).then(function(val){
-        debugger;
         expect(val).to.be.an.instanceof(Array);
         expect(val).to.eql([1,2,3]);
         done();

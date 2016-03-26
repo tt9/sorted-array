@@ -205,7 +205,6 @@
           }
         }
         catch(err){
-          debugger;
           reject(err);
         }
       }.bind(this));
