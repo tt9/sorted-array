@@ -1,5 +1,9 @@
 # SortedArrayAsync
 
+## installation
+
+`npm install --save sorted-array-async`
+
 ## Description
 
 An asynchronous, lazy, self sorting array. Use it to keep things in order. Like me, the SortedArray object is lazy, meaning it won't sort until it absolutely has to. This will allow you to throw all of your junk into the array and then worry about sorting last minute. This might help your performance, but it also might not, that's for you to figure out.
@@ -129,7 +133,7 @@ instance.pop(3).then(function(arr){
 
 * Add synchronous get and getArray functions. *(it kind of defeats the purpose of an async sorted array but might be needed in certain cases).*
 * Add dequeue and first functions.
-* Become a dependency of many large projects. *($$$$)*
-* Angrily remove package from NPM causing widespread havoc. *($$$$$$$$)*
-* ????? *(?????)*
+* Become a dependency of many large projects.
+* Angrily remove package from NPM causing widespread havoc.
+* ?????
 * Profit!!! *($$$$$$$$$$$$$$$$$)*
