@@ -1,6 +1,6 @@
 # SortedArrayAsync
 
-## installation
+## Installation
 
 `npm install --save sorted-array-async`
 
