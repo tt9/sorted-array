@@ -1,9 +1,5 @@
 # SortedArrayAsync
 
-## Warning
-
-This is in super Alpha at the moment, don't use it yet. Just don't. I'll remove this warning when the build is more stable.
-
 ## Description
 
 An asynchronous, lazy, self sorting array. Use it to keep things in order. Like me the SortedArray object is lazy, meaning it won't sort until it absolutely has to. This will allow you to throw all of your junk into the array and then worry about sorting last minute. This might help your performance, but it also might not, that's for you to figure out.

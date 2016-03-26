@@ -68,6 +68,52 @@ describe("sorted-array", function(){
       });
     });
 
+    it("push an array of items", function(done){
+      instance.push([5,4,3,2,1,0]).then(function(){
+        expect(instance._data_.length).to.equal(6);
+        expect(instance._data_).to.eql([5,4,3,2,1,0]);
+        done();
+      });
+    });
+
+  });
+
+  describe("pushSync", function(){
+    it('should add items to the sorted array synchronously and not sort them', function(){
+      instance.pushSync(5);
+      instance.pushSync(4);
+      expect(instance._data_[0]).to.equal(5);
+      expect(instance._data_[1]).to.equal(4);
+    });
+
+    it('should add range of items to the array synchronously and not sort them', function(){
+      instance.pushSync([5, 4 ,3]);
+      expect(instance._data_[0]).to.equal(5);
+      expect(instance._data_[1]).to.equal(4);
+      expect(instance._data_[2]).to.equal(3);
+    });
+
+  });
+
+  describe("pop", function(){
+    it('should pop last item in array after sorting it', function(done){
+      instance.push(5);
+      instance.push(4);
+      instance.pop().then(function(item){
+        expect(item).to.equal(5);
+        done();
+      })
+    });
+    it('should pop many items', function(done){
+      fullInstance.pop(3).then(function(range){
+        debugger;
+        expect(range.length).to.equal(3);
+        expect(range).to.eql([3,4,5]);
+        expect(fullInstance._data_.length).to.equal(2);
+        expect(fullInstance._data_).to.eql([1,2]);
+        done();
+      });
+    });
 
   });
 
@@ -109,6 +155,15 @@ describe("sorted-array", function(){
       });
     });
 
+  });
+
+  describe('last', function(){
+    it('should return the last value in the array', function(done){
+      fullInstance.last().then(function(item){
+        expect(item).to.equal(5);
+        done();
+      });
+    });
   });
 
   describe("getArray:largeSet", function(){

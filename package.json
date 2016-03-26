@@ -1,6 +1,6 @@
 {
   "name": "sorted-array-async",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "an async self sorting array",
   "main": "./src/sorted-array.js",
   "scripts": {
@@ -9,8 +9,10 @@
     "coverage": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha"
   },
   "keywords": [
+    "sort",
+    "array",
     "collection",
-    "sort"
+    "async"
   ],
   "author": "tt9",
   "license": "MIT",
@@ -25,11 +27,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/tt9/sorted-array"
-  },
-  "keywords": [
-    "sort",
-    "array",
-    "collection",
-    "async"
-  ]
+  }
 }

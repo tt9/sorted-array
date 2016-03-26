@@ -136,8 +136,14 @@
     SortedArray.prototype.push = function(item){
       return new Promise(function(resolve, reject){
         try{
-          this._dirty_++;
-          this._data_.push(item);
+          if(Array.isArray(item)){
+            this._dirty_ += item.length;
+            this._data_ = this._data_.concat(item);
+          }
+          else{
+            this._dirty_++;
+            this._data_.push(item);
+          }
           resolve();
         }
         catch(err){
@@ -146,15 +152,24 @@
       }.bind(this));
     }
 
+    SortedArray.prototype.pushSync = function(item){
+      if(Array.isArray(item)){
+        this._dirty_ += item.length;
+        this._data_ = this._data_.concat(item);
+      }
+      else{
+        this._dirty_++;
+        this._data_.push(item);
+      }
+    }
+
 
     SortedArray.prototype.get = function(index, endIndex){
       return new Promise(function(resolve, reject){
         try{
-          debugger;
           this._cleanup_();
           if(endIndex && endIndex > index && endIndex < this._data_.length){
             var range = [];
-            debugger;
             for(var i = index; i <= endIndex; i++){
               range.push(this._data_[i]);
             }
@@ -165,12 +180,36 @@
           }
         }
         catch(err){
-          debugger;
           reject(err);
         }
       }.bind(this));
     }
 
+    SortedArray.prototype.last = function(){
+      return this.get(this._data_.length -1);
+    }
+
+    SortedArray.prototype.pop = function(count){
+      return new Promise(function(resolve, reject){
+        try{
+          this._cleanup_();
+          if(count && count <= this._data_.length){
+            var resultSet = [];
+            while(count-- > 0){
+              resultSet.unshift(this._data_.pop());
+            }
+            resolve(resultSet);
+          }
+          else{
+            resolve(this._data_.pop());
+          }
+        }
+        catch(err){
+          debugger;
+          reject(err);
+        }
+      }.bind(this));
+    }
 
     SortedArray.prototype.getArray = function(){
       return new Promise(function (resolve, reject){
@@ -187,7 +226,6 @@
         }
       }.bind(this));
     }
-
     return SortedArray;
   })();
 
