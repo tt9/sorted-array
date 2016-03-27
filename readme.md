@@ -11,7 +11,6 @@ An asynchronous, lazy, self sorting array. Use it to keep things in order. Like 
 Like the name would imply, the important functions are async through the use of Promises. See **usage** below if you need clarification on what that means or how to use it.
 
 
-
 ## API
 
 The API contains the basic functions you would see in any other array, the difference being that when you try to retrieve objects they will have been sorted.
@@ -52,10 +51,31 @@ var instance = new SortedArray();
 
 instance.push(56).then(function(){
 	//Maybe you want to wait until the item was added before doing something??
+
+	instance.get(0).then(function(item){
+		//item is the value at index 0;
+	});
+
 });
 
+
+```
+
+#### Synchronous Push
+
+```JavaScript
+
+var SortedArray = require('sorted-array-async');
+
+var instance = new SortedArray();
+
+instance.pushSync(90);
+instance.pushSync(83);
+instance.pushSync(2);
+
+
 instance.get(0).then(function(item){
-	//item is the value at index 0;
+	//...
 });
 
 

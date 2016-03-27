@@ -195,7 +195,7 @@
           if(count < 0){
             reject('invalid count');
           }
-          
+
           this._cleanup_();
           if(count && count <= this._data_.length){
             var resultSet = [];
@@ -235,11 +235,11 @@
   //exports
   if( typeof exports !== 'undefined' ) {
     if( typeof module !== 'undefined' && module.exports ) {
-      exports = module.exports = SortedArray
+      exports = module.exports = SortedArray;
     }
-    exports.SortedArray = SortedArray
+    exports.SortedArray = SortedArray;
   }
   else if (window) {
-    window.mymodule = mymodule
+    window.SortedArray = SortedArray;
   }
 }).call(this);
